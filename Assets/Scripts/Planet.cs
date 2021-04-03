@@ -14,17 +14,13 @@ public class Planet : MonoBehaviour
 
     public Vector3 v3;
 
-    // Start is called before the first frame update
     void Start()
     {
         v3 = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //transform.position += Vector3.right * speed * Time.deltaTime
-
         angle += speed * Time.deltaTime;
 
         v3.x = radius * Mathf.Cos(angle);
