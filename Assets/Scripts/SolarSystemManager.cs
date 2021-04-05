@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Schema;
 using UnityEngine;
 
 public class SolarSystemManager : MonoBehaviour
@@ -18,7 +15,7 @@ public class SolarSystemManager : MonoBehaviour
         {
             do
             {
-                random = UnityEngine.Random.Range(0, planets.Length);
+                random = Random.Range(0, planets.Length);
             } while (listNumbers.Contains(random));
             listNumbers.Add(random);
             Instantiate(planets[listNumbers[i]]);
