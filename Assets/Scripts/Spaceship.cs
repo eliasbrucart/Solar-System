@@ -5,21 +5,20 @@ using UnityEngine;
 public class Spaceship : MonoBehaviour
 {
     public float speed;
+
+    public Vector3 initialPos;
     void Start()
     {
-        
+        transform.position = initialPos;
     }
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.LeftArrow))
-        {
-            this.transform.position += new Vector3(-1, 0, 0) * speed * Time.deltaTime;
-        }
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            this.transform.position += new Vector3(1, 0, 0) * speed * Time.deltaTime;
-        }
+        Vector3 direction = new Vector3(horizontal, 0, vertical);
+
+        transform.position += direction * speed * Time.deltaTime;
     }
 }
