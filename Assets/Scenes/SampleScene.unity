@@ -210,6 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 300
   initialPos: {x: 299, y: 28.25, z: -14.43}
+  cam: {fileID: 963194228}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687fe421921fa0142bdc30c39795382c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountPlanets: 5
+  amountPlanets: 9
   planetsPrefabs:
   - {fileID: 4330482665653248706, guid: bda20d5a70f46384db78e5db5491985d, type: 3}
   - {fileID: 1014260195441236823, guid: 33e600e15b835374794ec674516a739d, type: 3}
