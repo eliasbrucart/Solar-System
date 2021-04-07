@@ -10,11 +10,14 @@ public class Spaceship : MonoBehaviour
 
     public Transform cam;
 
-    private Vector3 offset = new Vector3(0.0f, -10.0f, 60.0f);
+    private bool follow;
+
+    private Vector3 offset = new Vector3(0.0f, -15.0f, 60.0f);
 
     void Start()
     {
         transform.position = initialPos;
+        follow = true;
     }
 
     void Update()
@@ -25,11 +28,16 @@ public class Spaceship : MonoBehaviour
         Vector3 direction = new Vector3(horizontal, 0, vertical);
 
         transform.position += direction * speed * Time.deltaTime;
+
+        if (Input.GetKey(KeyCode.N))
+        {
+            follow = true;
+        }
     }
 
     void LateUpdate()
     {
-        if (Input.GetKey(KeyCode.N))
+        if (follow == true)
         {
             cam.transform.position = transform.position - offset;
         }

@@ -44,7 +44,6 @@ namespace SolarSystemManager
 
         void Update()
         {
-            //randomIntensity = Random.Range(0.0f, 10.0f);
             if (Input.GetKeyDown(KeyCode.Alpha0))
             {
                 planetIndex = 0;
