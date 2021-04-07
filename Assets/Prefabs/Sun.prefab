@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4173944474794197430}
   - component: {fileID: 4173944474794197426}
   - component: {fileID: 7022563286032454717}
+  - component: {fileID: 9082854992894534888}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -253,3 +254,16 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!135 &9082854992894534888
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4173944474794197385}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Center: {x: 0, y: 0, z: 0}

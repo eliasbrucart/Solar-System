@@ -42,4 +42,18 @@ public class Spaceship : MonoBehaviour
             cam.transform.position = transform.position - offset;
         }
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        Color blend = other.gameObject.GetComponent<MeshRenderer>().material.color;
+        blend.a = 0.5f;
+        other.gameObject.GetComponent<MeshRenderer>().material.color = new Color(blend.r, blend.g, blend.b, blend.a);
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        Color blend = other.gameObject.GetComponent<MeshRenderer>().material.color;
+        blend.a = 1.0f;
+        other.gameObject.GetComponent<MeshRenderer>().material.color = new Color(blend.r, blend.g, blend.b, blend.a);
+    }
 }
