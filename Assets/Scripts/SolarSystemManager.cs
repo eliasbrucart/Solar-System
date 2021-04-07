@@ -12,6 +12,13 @@ namespace SolarSystemManager
 
         public Transform cam;
 
+        private float minIntensity = 0.2f;
+        private float maxIntensity = 1.0f;
+
+        public Light pointLight;
+        private bool lightIntensity;
+        private float randomIntensity;
+
         private int planetIndex = 0;
         private Vector3 offset = new Vector3(0.0f, -25.0f, 75.0f);
 
@@ -31,10 +38,13 @@ namespace SolarSystemManager
                 GameObject go = Instantiate(planetsPrefabs[listNumbers[i]]);
                 planetsCreated.Add(go);
             }
+            randomIntensity = minIntensity;
+            lightIntensity = false;
         }
 
         void Update()
         {
+            //randomIntensity = Random.Range(0.0f, 10.0f);
             if (Input.GetKeyDown(KeyCode.Alpha0))
             {
                 planetIndex = 0;
@@ -93,6 +103,20 @@ namespace SolarSystemManager
             {
                 follow = false;
             }
+
+            if (!lightIntensity)
+                randomIntensity += Random.Range(minIntensity, maxIntensity) * Time.deltaTime;
+            else
+                randomIntensity -= Random.Range(minIntensity, maxIntensity) * Time.deltaTime;
+
+            if (randomIntensity >= maxIntensity)
+                lightIntensity = true;
+            if(randomIntensity <= minIntensity)
+                lightIntensity = false;
+
+            pointLight.intensity = Mathf.Sin(randomIntensity);
+            //float noise = Mathf.PerlinNoise(randomIntensity, Time.time);
+            //pointLight.intensity = Mathf.Lerp(minIntensity, maxIntensity, noise);
         }
 
         void LateUpdate()
