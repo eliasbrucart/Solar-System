@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AsteroidsManager.cs" />
     <Compile Include="Assets\Scripts\Planet.cs" />
     <Compile Include="Assets\Scripts\RandomRotator.cs" />
     <Compile Include="Assets\Scripts\SolarSystemManager.cs" />
