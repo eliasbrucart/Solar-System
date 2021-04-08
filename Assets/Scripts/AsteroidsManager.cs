@@ -12,6 +12,7 @@ public class AsteroidsManager : MonoBehaviour
     public float timeToDestroy = 0.0f;
 
     private bool checkAsteroids = false;
+    private bool checkDeletedAst = false;
 
     void Start()
     {
@@ -20,15 +21,14 @@ public class AsteroidsManager : MonoBehaviour
     
     void Update()
     {
-        timeToDestroy += Time.deltaTime;
         if(timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
         }
 
-        if(timeRemaining <= 0)
+        if (timeRemaining <= 0)
         {
-            if(checkAsteroids == false)
+            if (checkAsteroids == false)
             {
                 for (int i = 0; i < amountOfAsteroids; i++)
                 {
@@ -42,14 +42,27 @@ public class AsteroidsManager : MonoBehaviour
                     }
                 }
             }
+            timeRemaining = 20.0f;
+        }
+        if(timeToDestroy <= 0.0f || timeToDestroy > 0.0f)
+        {
+            timeToDestroy += Time.deltaTime;
         }
         if (timeToDestroy >= 20.0f)
         {
-            for(int i = 0; i < amountOfAsteroids; i++)
+            if(checkDeletedAst == false)
             {
-                GameObject.Destroy(asteroidsCreated[i].gameObject);
-                asteroidsCreated.RemoveAt(i);
+                for (int i = 0; i < asteroidsCreated.Count; i++)
+                {
+                    Destroy(asteroidsCreated[i].gameObject);
+                    asteroidsCreated.RemoveAt(i);
+                    if (asteroidsCreated.Count == 0)
+                    {
+                        checkDeletedAst = true;
+                    }
+                }
             }
+            timeToDestroy = 0.0f;
         }
     }
 }

@@ -114,8 +114,6 @@ namespace SolarSystemManager
                 lightIntensity = false;
 
             pointLight.intensity = Mathf.Sin(randomIntensity);
-            //float noise = Mathf.PerlinNoise(randomIntensity, Time.time);
-            //pointLight.intensity = Mathf.Lerp(minIntensity, maxIntensity, noise);
         }
 
         void LateUpdate()
