@@ -54,11 +54,11 @@ public class AsteroidsManager : MonoBehaviour
             {
                 for (int i = 0; i < asteroidsCreated.Count; i++)
                 {
-                    Destroy(asteroidsCreated[i].gameObject);
-                    asteroidsCreated.RemoveAt(i);
-                    if (asteroidsCreated.Count == 0)
+                    if (asteroidsCreated[i] != null)
                     {
-                        checkDeletedAst = true;
+                        Destroy(asteroidsCreated[i].gameObject);
+                        if (asteroidsCreated.Count == 0)
+                            checkDeletedAst = true;
                     }
                 }
             }
